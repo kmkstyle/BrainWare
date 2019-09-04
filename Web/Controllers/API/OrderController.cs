@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
+﻿using System.Collections.Generic;
 using System.Web.Http;
 
 namespace Web.Controllers
@@ -11,14 +7,25 @@ namespace Web.Controllers
     using Infrastructure;
     using Models;
 
+    /// <summary>
+    /// Order controller class
+    /// </summary>
     public class OrderController : ApiController
     {
+        /// <summary>
+        /// Order helper
+        /// </summary>
+        public OrderHelper OrderHelper => new OrderHelper();    
+  
+        /// <summary>
+        /// Get orders for a specified company id
+        /// </summary>
+        /// <param name="companyId">Company Id</param>
+        /// <returns>Collection of orders</returns>
         [HttpGet]
-        public IEnumerable<Order> GetOrders(int id = 1)
+        public IEnumerable<Order> GetOrders(int companyId = 1)
         {
-            var data = new OrderService();
-
-            return data.GetOrdersForCompany(id);
+            return OrderHelper.GetOrdersAndOrderProductsForCompany(companyId);
         }
     }
 }

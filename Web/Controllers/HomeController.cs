@@ -1,20 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
 namespace Web.Controllers
 {
-    using Infrastructure;
-
+    /// <summary>
+    /// Home controller class
+    /// </summary>
     public class HomeController : Controller
     {
+        /// <summary>
+        /// Home index view
+        /// </summary>
+        /// <returns>Home index view</returns>
         public ActionResult Index()
         {
+            ViewBag.Title = "Home Page";
             return View();
         }
-
-
     }
 }

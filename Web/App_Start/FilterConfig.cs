@@ -1,13 +1,22 @@
-﻿using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
 namespace Web
 {
-    public class FilterConfig
+    /// <summary>
+    /// Fiter configuration cloass
+    /// </summary>
+    public static class FilterConfig
     {
-        public static void RegisterGlobalFilters(GlobalFilterCollection filters)
+        /// <summary>
+        /// Register global filters
+        /// </summary>
+        /// <param name="globalFilters">Global filters</param>
+        public static void RegisterGlobalFilters(GlobalFilterCollection globalFilters)
         {
-            filters.Add(new HandleErrorAttribute());
+            if (globalFilters != null)
+            {
+                globalFilters.Add(new HandleErrorAttribute());
+            }
         }
     }
 }

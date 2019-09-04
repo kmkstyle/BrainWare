@@ -1,6 +1,5 @@
 ﻿using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Web;
 using Web.Controllers;
 
 namespace Tests.Controllers
@@ -13,13 +12,14 @@ namespace Tests.Controllers
         {
             // Arrange
             HomeController controller = new HomeController();
+            var expectedResult = "Home Page";
 
             // Act
             ViewResult result = controller.Index() as ViewResult;
 
             // Assert
             Assert.IsNotNull(result);
-            Assert.AreEqual("Home Page", result.ViewBag.Title);
+            Assert.AreEqual(expectedResult, result.ViewBag.Title);
         }
     }
 }

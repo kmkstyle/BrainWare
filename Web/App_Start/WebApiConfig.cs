@@ -1,24 +1,38 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web.Http;
+﻿using System.Web.Http;
 
 namespace Web
 {
+    /// <summary>
+    /// Web API Configuration class
+    /// </summary>
     public static class WebApiConfig
     {
-        public static void Register(HttpConfiguration config)
+        /// <summary>
+        /// Default route name
+        /// </summary>
+        private const string DefaultRouteName = "DefaultApi";
+
+        /// <summary>
+        /// Default route template
+        /// </summary>
+        private const string DefaultRouteTempate = "api/{controller}/{id}";
+
+        /// <summary>
+        /// Register Web API
+        /// </summary>
+        /// <param name="httpConfiguration">Configuration of HttpServer instances</param>
+        public static void Register(HttpConfiguration httpConfiguration)
         {
-            // Web API configuration and services
+            if (httpConfiguration != null)
+            {
+                httpConfiguration.MapHttpAttributeRoutes();
 
-            // Web API routes
-            config.MapHttpAttributeRoutes();
-
-            config.Routes.MapHttpRoute(
-                name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
-            );
+                httpConfiguration.Routes.MapHttpRoute(
+                    name: DefaultRouteName,
+                    routeTemplate: DefaultRouteTempate,
+                    defaults: new { id = RouteParameter.Optional }
+                );
+            }
         }
     }
 }

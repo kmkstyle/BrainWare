@@ -1,45 +1,35 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 
 namespace Web.Models
 {
-    using System.Security.AccessControl;
-
+    /// <summary>
+    /// Order class
+    /// </summary>
     public class Order
     {
+        /// <summary>
+        /// Order Id
+        /// </summary>
         public int OrderId { get; set; }
 
+        /// <summary>
+        /// Company name
+        /// </summary>
         public string CompanyName { get; set; }
 
+        /// <summary>
+        /// Description
+        /// </summary>
         public string Description { get; set; }
 
+        /// <summary>
+        /// Order total
+        /// </summary>
         public decimal OrderTotal { get; set; }
 
+        /// <summary>
+        /// Order products
+        /// </summary>
         public List<OrderProduct> OrderProducts { get; set; }
-
-    }
-
-
-    public class OrderProduct
-    {
-        public int OrderId { get; set; }
-
-        public int ProductId { get; set; }
-
-        public Product Product { get; set; }
-    
-        public int Quantity { get; set; }
-
-        public decimal Price { get; set; }
-
-    }
-
-    public class Product
-    {
-        public string Name { get; set; }
-
-        public decimal Price { get; set; }
     }
 }

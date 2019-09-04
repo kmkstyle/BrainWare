@@ -6,11 +6,17 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
-
+ 
 namespace Web
 {
+    /// <summary>
+    /// Web api application class
+    /// </summary>
     public class WebApiApplication : System.Web.HttpApplication
     {
+        /// <summary>
+        /// Start the web application
+        /// </summary>
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
